@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201807241346213_added fkey to customer model.Designer.cs">
       <DependentUpon>201807241346213_added fkey to customer model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807241515524_updated eventlist controller.cs" />
+    <Compile Include="Migrations\201807241515524_updated eventlist controller.Designer.cs">
+      <DependentUpon>201807241515524_updated eventlist controller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -323,6 +327,8 @@
     <Content Include="Views\EventLists\Details.cshtml" />
     <Content Include="Views\EventLists\Edit.cshtml" />
     <Content Include="Views\EventLists\Index.cshtml" />
+    <Content Include="Views\Shared\Admin.cshtml" />
+    <Content Include="Views\Shared\Customer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807241346213_added fkey to customer model.resx">
       <DependentUpon>201807241346213_added fkey to customer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241515524_updated eventlist controller.resx">
+      <DependentUpon>201807241515524_updated eventlist controller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
