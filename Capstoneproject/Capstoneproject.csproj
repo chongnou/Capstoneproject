@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201807240319454_added admin model.Designer.cs">
       <DependentUpon>201807240319454_added admin model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807240339581_added more models.cs" />
+    <Compile Include="Migrations\201807240339581_added more models.Designer.cs">
+      <DependentUpon>201807240339581_added more models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -295,6 +299,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807240319454_added admin model.resx">
       <DependentUpon>201807240319454_added admin model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807240339581_added more models.resx">
+      <DependentUpon>201807240339581_added more models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
