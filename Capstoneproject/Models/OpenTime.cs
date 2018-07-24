@@ -7,14 +7,12 @@ using System.Web;
 
 namespace Capstoneproject.Models
 {
-    public class EventList
+    public class OpenTime
     {
         [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Hours { get; set; }
-        public string Cost { get; set; }
-        public string Address { get; set; }
+        public int ID { get; set; }
 
+        [Display(Name = "Open Time")]
+        public string Start { get; set; }
     }
 }
