@@ -195,8 +195,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\CloseTimesController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EventListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OpenTimesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +212,20 @@
     <Compile Include="Migrations\201807240339581_added more models.cs" />
     <Compile Include="Migrations\201807240339581_added more models.Designer.cs">
       <DependentUpon>201807240339581_added more models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807241337206_removed fkey.cs" />
+    <Compile Include="Migrations\201807241337206_removed fkey.Designer.cs">
+      <DependentUpon>201807241337206_removed fkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807241341438_added f\key.cs" />
+    <Compile Include="Migrations\201807241342575_added f\key to model admin.cs" />
+    <Compile Include="Migrations\201807241344112_removed fkey customer model.cs" />
+    <Compile Include="Migrations\201807241344112_removed fkey customer model.Designer.cs">
+      <DependentUpon>201807241344112_removed fkey customer model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807241346213_added fkey to customer model.cs" />
+    <Compile Include="Migrations\201807241346213_added fkey to customer model.Designer.cs">
+      <DependentUpon>201807241346213_added fkey to customer model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -279,6 +298,31 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\CloseTimes\Create.cshtml" />
+    <Content Include="Views\CloseTimes\Delete.cshtml" />
+    <Content Include="Views\CloseTimes\Details.cshtml" />
+    <Content Include="Views\CloseTimes\Edit.cshtml" />
+    <Content Include="Views\CloseTimes\Index.cshtml" />
+    <Content Include="Views\OpenTimes\Create.cshtml" />
+    <Content Include="Views\OpenTimes\Delete.cshtml" />
+    <Content Include="Views\OpenTimes\Details.cshtml" />
+    <Content Include="Views\OpenTimes\Edit.cshtml" />
+    <Content Include="Views\OpenTimes\Index.cshtml" />
+    <Content Include="Views\EventLists\Create.cshtml" />
+    <Content Include="Views\EventLists\Delete.cshtml" />
+    <Content Include="Views\EventLists\Details.cshtml" />
+    <Content Include="Views\EventLists\Edit.cshtml" />
+    <Content Include="Views\EventLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +346,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807240339581_added more models.resx">
       <DependentUpon>201807240339581_added more models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241337206_removed fkey.resx">
+      <DependentUpon>201807241337206_removed fkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241344112_removed fkey customer model.resx">
+      <DependentUpon>201807241344112_removed fkey customer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241346213_added fkey to customer model.resx">
+      <DependentUpon>201807241346213_added fkey to customer model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
