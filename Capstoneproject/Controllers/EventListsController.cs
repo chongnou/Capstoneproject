@@ -46,7 +46,7 @@ namespace Capstoneproject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Hours,Cost,Address")] EventList eventList)
+        public ActionResult Create([Bind(Include = "Id,Name,Hours,Cost,Website,Address")] EventList eventList)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Capstoneproject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Hours,Cost,Address")] EventList eventList)
+        public ActionResult Edit([Bind(Include = "Id,Name,Hours,Cost,Website,Address")] EventList eventList)
         {
             if (ModelState.IsValid)
             {

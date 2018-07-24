@@ -7,13 +7,13 @@ namespace Capstoneproject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class updatedeventlistcontroller : IMigrationMetadata
+    public sealed partial class addedcosttoeventlistmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedeventlistcontroller));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedcosttoeventlistmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807241515524_updated eventlist controller"; }
+            get { return "201807241532247_added cost to eventlist model"; }
         }
         
         string IMigrationMetadata.Source
