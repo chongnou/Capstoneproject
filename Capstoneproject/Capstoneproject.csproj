@@ -195,75 +195,37 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
-    <Compile Include="Controllers\CloseTimesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
-    <Compile Include="Controllers\EventListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NightLivesController.cs" />
-    <Compile Include="Controllers\OpenTimesController.cs" />
-    <Compile Include="Controllers\RestaurantListsController.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807240319454_added admin model.cs" />
-    <Compile Include="Migrations\201807240319454_added admin model.Designer.cs">
-      <DependentUpon>201807240319454_added admin model.cs</DependentUpon>
+    <Compile Include="Migrations\201807252033472_initialMigration.cs" />
+    <Compile Include="Migrations\201807252033472_initialMigration.Designer.cs">
+      <DependentUpon>201807252033472_initialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807240339581_added more models.cs" />
-    <Compile Include="Migrations\201807240339581_added more models.Designer.cs">
-      <DependentUpon>201807240339581_added more models.cs</DependentUpon>
+    <Compile Include="Migrations\201807252057101_pulled.cs" />
+    <Compile Include="Migrations\201807252057101_pulled.Designer.cs">
+      <DependentUpon>201807252057101_pulled.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807241337206_removed fkey.cs" />
-    <Compile Include="Migrations\201807241337206_removed fkey.Designer.cs">
-      <DependentUpon>201807241337206_removed fkey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807241341438_added f\key.cs" />
-    <Compile Include="Migrations\201807241342575_added f\key to model admin.cs" />
-    <Compile Include="Migrations\201807241344112_removed fkey customer model.cs" />
-    <Compile Include="Migrations\201807241344112_removed fkey customer model.Designer.cs">
-      <DependentUpon>201807241344112_removed fkey customer model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807241346213_added fkey to customer model.cs" />
-    <Compile Include="Migrations\201807241346213_added fkey to customer model.Designer.cs">
-      <DependentUpon>201807241346213_added fkey to customer model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807241532247_added cost to eventlist model.cs" />
-    <Compile Include="Migrations\201807241532247_added cost to eventlist model.Designer.cs">
-      <DependentUpon>201807241532247_added cost to eventlist model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807251615113_added barlist, restaurantlist to models.cs" />
-    <Compile Include="Migrations\201807251615113_added barlist, restaurantlist to models.Designer.cs">
-      <DependentUpon>201807251615113_added barlist, restaurantlist to models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807251621019_added models.cs" />
-    <Compile Include="Migrations\201807251621019_added models.Designer.cs">
-      <DependentUpon>201807251621019_added models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807251624194_added barlist and restaurantlists to identity model.cs" />
-    <Compile Include="Migrations\201807251624194_added barlist and restaurantlists to identity model.Designer.cs">
-      <DependentUpon>201807251624194_added barlist and restaurantlists to identity model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807251628191_added nightlife model.cs" />
-    <Compile Include="Migrations\201807251628191_added nightlife model.Designer.cs">
-      <DependentUpon>201807251628191_added nightlife model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807251630143_fixed nightlife in identity model.cs" />
-    <Compile Include="Migrations\201807251630143_fixed nightlife in identity model.Designer.cs">
-      <DependentUpon>201807251630143_fixed nightlife in identity model.cs</DependentUpon>
+    <Compile Include="Migrations\201807252145502_renamed models.cs" />
+    <Compile Include="Migrations\201807252145502_renamed models.Designer.cs">
+      <DependentUpon>201807252145502_renamed models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\NightLife.cs" />
-    <Compile Include="Models\CloseTime.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\EventList.cs" />
+    <Compile Include="Models\Activities.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\OpenTime.cs" />
-    <Compile Include="Models\RestaurantList.cs" />
+    <Compile Include="Models\Restaurants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -348,21 +310,21 @@
     <Content Include="Views\OpenTimes\Index.cshtml" />
     <Content Include="Views\Shared\Admin.cshtml" />
     <Content Include="Views\Shared\Customer.cshtml" />
-    <Content Include="Views\EventLists\Create.cshtml" />
-    <Content Include="Views\EventLists\Delete.cshtml" />
-    <Content Include="Views\EventLists\Details.cshtml" />
-    <Content Include="Views\EventLists\Edit.cshtml" />
-    <Content Include="Views\EventLists\Index.cshtml" />
-    <Content Include="Views\RestaurantLists\Create.cshtml" />
-    <Content Include="Views\RestaurantLists\Delete.cshtml" />
-    <Content Include="Views\RestaurantLists\Details.cshtml" />
-    <Content Include="Views\RestaurantLists\Edit.cshtml" />
-    <Content Include="Views\RestaurantLists\Index.cshtml" />
     <Content Include="Views\NightLives\Create.cshtml" />
     <Content Include="Views\NightLives\Delete.cshtml" />
     <Content Include="Views\NightLives\Details.cshtml" />
     <Content Include="Views\NightLives\Edit.cshtml" />
     <Content Include="Views\NightLives\Index.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\Restaurants\Create.cshtml" />
+    <Content Include="Views\Restaurants\Delete.cshtml" />
+    <Content Include="Views\Restaurants\Details.cshtml" />
+    <Content Include="Views\Restaurants\Edit.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -381,38 +343,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807240319454_added admin model.resx">
-      <DependentUpon>201807240319454_added admin model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807252033472_initialMigration.resx">
+      <DependentUpon>201807252033472_initialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807240339581_added more models.resx">
-      <DependentUpon>201807240339581_added more models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807252057101_pulled.resx">
+      <DependentUpon>201807252057101_pulled.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807241337206_removed fkey.resx">
-      <DependentUpon>201807241337206_removed fkey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807241344112_removed fkey customer model.resx">
-      <DependentUpon>201807241344112_removed fkey customer model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807241346213_added fkey to customer model.resx">
-      <DependentUpon>201807241346213_added fkey to customer model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807241532247_added cost to eventlist model.resx">
-      <DependentUpon>201807241532247_added cost to eventlist model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251615113_added barlist, restaurantlist to models.resx">
-      <DependentUpon>201807251615113_added barlist, restaurantlist to models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251621019_added models.resx">
-      <DependentUpon>201807251621019_added models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251624194_added barlist and restaurantlists to identity model.resx">
-      <DependentUpon>201807251624194_added barlist and restaurantlists to identity model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251628191_added nightlife model.resx">
-      <DependentUpon>201807251628191_added nightlife model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807251630143_fixed nightlife in identity model.resx">
-      <DependentUpon>201807251630143_fixed nightlife in identity model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807252145502_renamed models.resx">
+      <DependentUpon>201807252145502_renamed models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

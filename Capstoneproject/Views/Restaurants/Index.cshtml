@@ -1,0 +1,382 @@
+﻿@model IEnumerable<Capstoneproject.Models.Restaurants>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Website)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<html>
+<head>
+    <title>Place Searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #map {
+            height: 400px;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 400px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var map;
+        var infowindow;
+
+        function initMap() {
+
+            var movida = {
+                info: '<strong>1. Movida</strong><br>\
+                        Hours:<br> Mon 4-10pm<br>Tue 4-10pm<br>Wed 4-10pm<br>Thu 4-10pm<br>\
+                        Fri 4-11pm<br>Sat 4-11pm<br>Sun 4-10pm<br>\
+                        <a href="https://goo.gl/maps/dtbrzyFchft">Get Directions</a>',
+                lat: 43.025671,
+                long: -87.912376
+            };
+
+            var camino = {
+                info: '<strong>2. Camino</strong><br>\
+                        Hours:<br> Mon 11am–1am<br>Tue 11am–1am<br>Wed 11am–1am<br>Thu 11am–1am<br>\
+                        Fri 11am–2pm<br>Sat 11am–2am<br>Sun 11am–1am<br>\
+                        <a href="https://goo.gl/maps/WXrc1eVdVKT2">Get Directions</a>',
+                lat: 43.026502,
+                long: -87.912333
+            };
+
+            var screamingtuna = {
+                info: '<strong>3. Screaming Tuna</strong><br>\r\
+                        Hours:<br> Mon 11am-2:30pm, 4:30-10pm<br>Tue 11am-2:30pm, 4:30-10pm<br>Wed 11am-2:30pm, 4:30-10pm<br>Thu 11am-2:30pm, 4:30-10pm<br>\
+                        Fri 11am-2:30pm, 4:30-10pm<br>Sat 10:30am-11pm<br>Sun 10:30am-11pm<br>\
+                        <a href="https://goo.gl/maps/fYPM5RMNX6z">Get Directions</a>',
+                lat: 43.030938,
+                long: -87.911278
+            };
+
+            var merrimentsocial = {
+                info: '<strong>4. Merriment Social</strong><br>\r\
+                        Hours:<br> Mon - Closed<br>Tue 4-10pm<br>Wed 4-10pm<br>Thu 4-10pm<br>\
+                        Fri 4-10pm<br>Sat 10am-2pm, 5-11pm<br>Sun 10am-2pm, 4-9pm<br>\
+                        <a href="https://goo.gl/maps/rgHs1Dy9kLN2">Get Directions</a>',
+                lat: 43.029587,
+                long: -87.908845
+            };
+
+            var milwaukeesailloft = {
+                info: '<strong>5. Milwaukee Sail Loft</strong><br>\r\
+                        Hours:<br> Mon 11am-10pm<br>Tue 11am-10pm<br>Wed 11am-10pm<br>Thu 11am-10pm<br>\
+                        Fri 11am-11pm<br>Sat 11am-11pm<br>Sun 11am-9pm<br>\
+                        <a href="https://goo.gl/maps/c5jZtHETdDD2">Get Directions</a>',
+                lat: 43.026144,
+                long: -87.902045
+            };
+
+            var riverfrontpizzeriabarandgrill = {
+                info: '<strong>6. Riverfront Pizzeria Bar & Grill</strong><br>\r\
+                        Hours:<br> Mon - Closed<br>Tue 11am-10pm<br>Wed 11am-10pm<br>Thu 11am-10pm<br>\
+                        Fri 11am-11pm<br>Sat 11am-11pm<br>Sun 11am-9pm<br>\
+                        <a href="https://goo.gl/maps/xD9anBeTBKD2">Get Directions</a>',
+                lat: 43.028354,
+                long: -87.903983
+            };
+
+            var dandan = {
+                info: '<strong>7. DanDan</strong><br>\r\
+                        Hours:<br> Mon 11am-2pm, 5-10pm<br>Tue 11am-2pm, 5-10pm<br>Wed 11am-2pm, 5-10pm<br>Thu 11am-2pm, 5-10pm<br>\
+                        Fri 11am-2pm, 5-10pm<br>Sat 5-10pm<br>Sun - Closed<br>\
+                        <a href="https://goo.gl/maps/3T3j8R4Kn9C2">Get Directions</a>',
+                lat: 43.030034,
+                long: -87.905334
+            };
+
+            var bavettelaboucherie = {
+                info: '<strong>8. Bavette la Boucherie</strong><br>\r\
+                        Hours:<br> Mon 11am-5pm<br>Tue 11am-5pm<br>Wed 11am-9pm<br>Thu 11am-9pm<br>\
+                        Fri 11am-5pm<br>Sat 11am-9pm<br>Sun - Closed<br>\
+                        <a href="https://goo.gl/maps/52sUY6YW3Mw">Get Directions</a>',
+                lat: 43.031662,
+                long: -87.906093
+            };
+
+            var kanpaiizakaya = {
+                info: '<strong>9. Kanpai Izakaya</strong><br>\r\
+                        Hours:<br> Mon 11am-2:30pm, 4:30-10pm<br>Tue 11am-2:30pm, 4:30-10pm<br>Wed 11am-2:30pm, 4:30-10pm<br>Thu 11am-2:30pm, 4:30-10pm<br>\
+                        Fri 11am-2:30pm, 4:30-11pm<br>Sat 4-11pm<br>Sun 4-9pm<br>\
+                        <a href="https://goo.gl/maps/TDvgQDZQhd82">Get Directions</a>',
+                lat: 43.032893,
+                long: -87.905276
+            };
+
+            var trerivali = {
+                info: '<strong>10. Tre Rivali</strong><br>\r\
+                        Hours:<br> Mon 7am-10pm<br>Tue 7am-10pm<br>Wed 7am-10pm<br>Thu 7am-10pm<br>\
+                        Fri 7am-111pm<br>Sat 7am-11pm<br>Sun 7am-10pm<br>\
+                        <a href="https://goo.gl/maps/zQzYGoGEXfo">Get Directions</a>',
+                lat: 43.032893,
+                long: -87.906886
+            };
+
+            var bestplaceatthehistoricpabstbrewery = {
+                info: '<strong>11. Best Place at the Historic Pabst brewery</strong><br>\r\
+                        Hours:<br> Mon 11:30am-6pm<br>Tue - Closed<br>Wed 11:30am-6pm<br>Thu 11:30am-6pm<br>\
+                        Fri 10:30am-6pm<br>Sat 10:30am-6pm<br>Sun 11:30am-6pm<br>\
+                        <a href="https://goo.gl/maps/LqbJRvAZowx">Get Directions</a>',
+                lat: 43.045466,
+                long: -87.923418
+            };
+
+            var swig = {
+                info: '<strong>12. Swig</strong><br>\r\
+                        Hours:<br> Mon 11am-10pm<br>Tue 11am-10pm<br>Wed 11am-10pm<br>Thu 11am-10pm<br>\
+                        Fri 11am-10pm<br>Sat 10am-10pm<br>Sun 10am-3pm<br>\
+                        <a href="https://goo.gl/maps/8siz9akxKZm">Get Directions</a>',
+                lat: 43.033105,
+                long: -87.907584
+            };
+
+            var onesto = {
+                info: '<strong>13. Onesto</strong><br>\r\
+                        Hours:<br> Mon 11am-10pm<br>Tue 11am-10pm<br>Wed 11am-10pm<br>Thu 11am-10pm<br>\
+                        Fri 11am-10pm<br>Sat 11am-10pm<br>Sun 4-9pm<br>\
+                        <a href="https://goo.gl/maps/Fb7nQi5gQEn">Get Directions</a>',
+                lat: 43.033234,
+                long: -87.907484
+            };
+
+            var milwaukeealehouse = {
+                info: '<strong>14. Milwaukee Ale House</strong><br>\r\
+                        Hours:<br> Mon 11am-9pm<br>Tue 11am-9pm<br>Wed 11am-9pm<br>Thu 11am-10pm<br>\
+                        Fri 11am-12am<br>Sat 11am-12am<br>Sun 11am-9pm<br>\
+                        <a href="https://goo.gl/maps/jUsyV419ZTz">Get Directions</a>',
+                lat: 43.033472,
+                long: -87.909467
+            };
+
+            var thewickedhop = {
+                info: '<strong>15. The Wicked Hop</strong><br>\r\
+                        Hours:<br> Mon 10am-2pm<br>Tue 11am-2am<br>Wed 11am-2am<br>Thu 11am-2am<br>\
+                        Fri 11am-2am<br>Sat 9am-2am<br>Sun 9am-2am<br>\
+                        <a href="https://goo.gl/maps/fGaeLoSzxS72">Get Directions</a>',
+                lat: 43.034811,
+                long: -87.907687
+            };
+
+            var cafebenelux = {
+                info: '<strong>16. Cafe Benelux</strong><br>\r\
+                        Hours:<br> Mon 7am-12pm<br>Tue 7am-12pm<br>Wed 7am-12pm<br>Thu 7am-12pm<br>\
+                        Fri 7am-12pm<br>Sat 8am-12am<br>Sun 8am-11am<br>\
+                        <a href="https://goo.gl/maps/Fg4Do3EZqvF2">Get Directions</a>',
+                lat: 43.034922,
+                long: -87.907179
+            };
+
+            var smokeshack = {
+                info: '<strong>17. Smoke Shack</strong><br>\r\
+                        Hours:<br> Mon 11am-10pm<br>Tue 11am-10pm<br>Wed 11am-10pm<br>Thu 11am-10pm<br>\
+                        Fri 11am-10pm<br>Sat 10am-3pm<br>Sun 10am-3pm<br>\
+                        <a href="https://goo.gl/maps/95DaGzr9AY52">Get Directions</a>',
+                lat: 36.152195,
+                long: -95.904364
+            };
+
+            var cafelascala = {
+                info: '<strong>18. Cafe La Scala</strong><br>\r\
+                        Hours:<br> Mon 10am-2pm<br>Tue 11am-2am<br>Wed 11am-2am<br>Thu 11am-2am<br>\
+                        Fri 11am-2am<br>Sat 9am-2am<br>Sun 9am-2am<br>\
+                        <a href="https://goo.gl/maps/cS6VwyEfPxT2">Get Directions</a>',
+                lat: 43.032801,
+                long: -87.902509
+            };
+
+            var harborhouse = {
+                info: '<strong>19. Harbor House</strong><br>\r\
+                        Hours:<br> Mon 11:30am-9pm<br>Tue 11:30am-9pm<br>Wed 11:30am-9pm<br>Thu 11:30am-9pm<br>\
+                        Fri 11:30am-10pm<br>Sat 11:30am-10pm<br>Sun 10am-9pm<br>\
+                        <a href="https://goo.gl/maps/9GjZYmu41qC2">Get Directions</a>',
+                lat: 43.037703,
+                long: -87.895179
+            };
+
+            var downtownkitchen = {
+                info: '<strong>20. Downtown Kitchen</strong><br>\r\
+                        Hours:<br> Mon 6:30am-4pm<br>Tue 6:30am-4pm<br>Wed 6:30am-4pm<br>Thu 6:30am-4pm<br>\
+                        Fri 6:30am-4pm<br>Sat - Closed<br>Sun - Closed<br>\
+                        <a href="https://goo.gl/maps/t59k9BWiaXw">Get Directions</a>',
+                lat: 43.038226,
+                long: -87.901803
+            };
+
+            var cafeatthepfister = {
+                info: '<strong>21. Cafe at the Pfister</strong><br>\r\
+                        Hours:<br> Mon 6am-2pm<br>Tue 6am-2pm<br>Wed 6am-2pm<br>Thu 6am-2pm<br>\
+                        Fri 6am-2pm<br>Sat 6am-2pm<br>Sun 6am-2pm<br>\
+                        <a href="https://goo.gl/maps/9UGZDPaupx92">Get Directions</a>',
+                lat: 43.039360,
+                long: -87.905682
+            };
+
+            var amilinda = {
+                info: '<strong>22. Amilinda</strong><br>\r\
+                        Hours:<br> Mon - Closed<br>Tue 5-9pm<br>Wed 5-9pm<br>Thu 5-9pm<br>\
+                        Fri 5-10pm<br>Sat 5-10pm<br>Sun - Closed<br>\
+                        <a href="https://goo.gl/maps/9GjZYmu41qC2">Get Directions</a>',
+                lat: 43.038569,
+                long: -87.907340
+            };
+
+            var marcusrestaurantgroup = {
+                info: '<strong>23. Marcus Restaurant Group</strong><br>\r\
+                        Hours:<br> Mon 9am-5pm<br>Tue 9am-5pm<br>Wed 9am-5pm<br>Thu 9am-5pm<br>\
+                        Fri 9am-5pm<br>Sat - Closed<br>Sun - Closed<br>\
+                        <a href="https://goo.gl/maps/NybVVJaCacB2">Get Directions</a>',
+                lat: 43.038938,
+                long: -87.909566
+            };
+
+            var safehouse = {
+                info: '<strong>24. SafeHouse</strong><br>\r\
+                        Hours:<br> Mon 11am-12am<br>Tue 11am-12am<br>Wed 11am-1am<br>Thu 11am-1am<br>\
+                        Fri 11am-2am<br>Sat 11am-2am<br>Sun 11am-12am<br>\
+                        <a href="https://goo.gl/maps/c9yqDoYSR9C2">Get Directions</a>',
+                lat: 43.040586,
+                long: -87.910302
+            };
+
+            var kilwat= {
+                info: '<strong>25. Kil@Wat</strong><br>\r\
+                        Hours:<br> Mon 6:30am-2pm, 5-10pm<br>Tue 6:30am-2pm, 5-10pm<br>Wed 6:30am-2pm, 5-10pm<br>Thu 6:30am-2pm, 5-10pm<br>\
+                        Fri 6:30am-2pm, 5-10pm<br>Sat 6:30am-2pm, 5-10pm<br>Sun 9:30am-1:30pm<br>\
+                        <a href="https://goo.gl/maps/YNGzfEan8pm">Get Directions</a>',
+                lat: 43.041908,
+                long: -87.910892
+            };
+
+            var therumpusroomabartolottagastropub= {
+                info: '<strong>26. The Rumpus Room - A Bartolotta Gastropub</strong><br>\r\
+                        Hours:<br> Mon 5-9pm<br>Tue 5-9pm<br>Wed 5-9pm<br>Thu 5-9pm<br>\
+                        Fri 5-10pm<br>Sat 4-10pm<br>Sun 4-8pm<br>\
+                        <a href="https://goo.gl/maps/uBUMpvN9pG22">Get Directions</a>',
+                lat: 43.044255,
+                long: -87.910559
+            };
+
+            var zarletti= {
+                info: '<strong>27. Zarletti</strong><br>\r\
+                        Hours:<br> Mon 11am-9pm<br>Tue 11am-9pm<br>Wed 11am-9pm<br>Thu 11am-9pm<br>\
+                        Fri 11am-10pm<br>Sat 5-10pm<br>Sun - Closed<br>\
+                        <a href="https://goo.gl/maps/3BaAmcZGk1K2">Get Directions</a>',
+                lat: 43.039819,
+                long: -87.907024
+            };
+
+            var locations = [
+                [movida.info, movida.lat, movida.long, 0],
+                [camino.info, camino.lat, camino .long, 1],
+                [screamingtuna.info, screamingtuna.lat, screamingtuna .long, 2],
+                [merrimentsocial.info, merrimentsocial.lat, merrimentsocial .long, 3],
+                [milwaukeesailloft.info, milwaukeesailloft.lat, milwaukeesailloft .long, 4],
+                [riverfrontpizzeriabarandgrill.info, riverfrontpizzeriabarandgrill.lat, riverfrontpizzeriabarandgrill .long, 5],
+                [dandan.info, dandan.lat, dandan .long, 6],
+                [bavettelaboucherie.info, bavettelaboucherie.lat, bavettelaboucherie .long, 7],
+                [kanpaiizakaya.info, kanpaiizakaya.lat, kanpaiizakaya .long, 8],
+                [trerivali.info, trerivali.lat, trerivali .long, 9],
+                [bestplaceatthehistoricpabstbrewery.info, bestplaceatthehistoricpabstbrewery.lat, bestplaceatthehistoricpabstbrewery .long, 10],
+                [swig.info, swig.lat, swig .long, 11],
+                [onesto.info, onesto.lat, onesto .long, 12],
+                [milwaukeealehouse.info, milwaukeealehouse.lat, milwaukeealehouse .long, 13],
+                [thewickedhop.info, thewickedhop.lat, thewickedhop .long, 14],
+                [cafebenelux.info, cafebenelux.lat, cafebenelux.long, 16],
+                [smokeshack.info, smokeshack.lat, smokeshack .long, 17],
+                [cafelascala.info, cafelascala.lat, cafelascala .long, 18],
+                [harborhouse.info, harborhouse.lat, harborhouse .long, 19],
+                [downtownkitchen.info, downtownkitchen.lat, downtownkitchen .long, 20],
+                [cafeatthepfister.info, cafeatthepfister.lat, cafeatthepfister .long, 21],
+                [amilinda.info, amilinda.lat, amilinda.long, 22],
+                [marcusrestaurantgroup.info, marcusrestaurantgroup.lat, marcusrestaurantgroup.long, 23],
+                [safehouse.info, safehouse.lat, safehouse.long, 24],
+                [kilwat.info, kilwat.lat, kilwat.long, 25],
+                [therumpusroomabartolottagastropub.info, therumpusroomabartolottagastropub.lat, therumpusroomabartolottagastropub.long, 26],
+                [zarletti.info, zarletti.lat, zarletti.long, 27],
+
+            ];
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: new google.maps.LatLng(43.038902, -87.906474),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow({});
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVbmWBtkTpM1rgQ-KS-cK-f-uAS-wwMho&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>

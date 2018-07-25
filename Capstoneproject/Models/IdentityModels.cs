@@ -34,11 +34,9 @@ namespace Capstoneproject.Models
 
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Customer> Customer { get; set; }
-        public DbSet<EventList> EventList { get; set; }
-        public DbSet<RestaurantList> RestaurantLists { get; set; }
+        public DbSet<Activities> Activities { get; set; }
+        public DbSet<Restaurants> Restaurants { get; set; }
         public DbSet<NightLife> NightLives { get; set; }
-        public DbSet<OpenTime> OpenTime { get; set; }
-        public DbSet<CloseTime> CloseTime { get; set; }
 
     }
 }
