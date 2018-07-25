@@ -59,48 +59,240 @@
 
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>Google Maps Multiple Markers</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVbmWBtkTpM1rgQ-KS-cK-f-uAS-wwMho" type="text/javascript">
-    type="text/javascript"></script>
-</head>
-<body>
-    <div id="map" style="width: 500px; height: 400px;"></div>
+    <title>Place Searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+         /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+         #map {
+             height: 400px;
+         }
+         /* Optional: Makes the sample page fill the window. */
+         html, body {
+             height: 400px;
+             margin: 0;
+             padding: 0;
+         }
+    </style>
+    <script>
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-    <script type="text/javascript">
-        var locations = [
-            ['Harley-Davidson Museum', 43.031665, -87.916519, 1],
-            ['Great Lakes Distillery, LLC', 43.026596, -87.918606, 2],
-            ['Save Milwaukee', 43.033447, -87.908591, 3],
-            ['Milwaukee Public Market', 43.035220, -87.908078, 4],
-            ['Maroubra Beach', -33.950198, 151.259302, 5]
-        ];
+        var map;
+        var infowindow;
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
-            center: new google.maps.LatLng(43.038902, -87.906474),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
+        function initMap() {
 
-        var infowindow = new google.maps.InfoWindow();
+            var harley = {
+                info: '<strong>Harley Davidson Museum</strong><br>\
+                    Hours:<br> Mon 9am–6pm<br>Tue 9am–6pm<br>Wed 9am–6pmM<br>Thu 9am–8pm<br>\
+                    Fri 9am–6pm<br>Sat 9am–6pm<br>Sun 9am–6pm<br>\
+					<a href="https://goo.gl/maps/1YF3i2VKQ3Q2">Get Directions</a>',
+                lat: 43.031665,
+                long: -87.916519
+            };
 
-        var marker, i;
+            var greatlakes = {
+                info: '<strong>Great Lakes Distillery</strong><br>\
+                    Hours:<br> Mon 11am–10pm<br>Tue 11am–10pm<br>Wed 11am–10pm<br>Thu 11am–10pm<br>\
+                    Fri 11am–12pm<br>Sat 11am–12am<br>Sun 11am–8pm<br>\
+					<a href="https://goo.gl/maps/qo6d6ekQNME2">Get Directions</a>',
+                lat: 43.026596,
+                long: -87.918606
+            };
 
-        for (i = 0; i < locations.length; i++) {
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                map: map
+            var savemilwaukee = {
+                info: '<strong>Save Milwaukee</strong><br>\r\
+                    Hours:<br> Mon 12–10pm<br>Tue 12–10pm<br>Wed 12–10pm<br>Thu 12–10pm<br>\
+                    Fri 12–10pm<br>Sat 12–10pm<br>Sun 12–10pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var milwaukeepublicmarket = {
+                info: '<strong>Milwaukee Public Market</strong><br>\r\
+                    Hours:<br> Mon 10am-8pm<br>Tue 10am-8pm<br>Wed 10am-8pm<br>Thu 10am-8pm<br>\
+                    Fri 10am-8pm<br>Sat 8am-8pm<br>Sun 9am-6pm<br>\
+                    <a href="https://goo.gl/maps/J9KrFFyZ3sK2">Get Directions</a>',
+                lat: 43.035220,
+                long: -87.908078
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/zrwcZMcGRdF2">Get Directions</a>',
+                lat: 43.036783,
+                long: -87.896090
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+            var discoveryworld = {
+                info: '<strong>Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
+                lat: 43.033447,
+                long: -87.908591
+            };
+
+ 
+
+            var locations = [
+                [harley.info, harley.lat, harley.long, 0],
+                [greatlakes.info, greatlakes.lat, greatlakes.long, 1],
+                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+                [milwaukeepublicmarket.info, milwaukeepublicmarket.lat, milwaukeepublicmarket.long, 2],
+                [discoveryworld.info, discoveryworld.lat, discoveryworld.long, 2],
+                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+
+            ];
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: new google.maps.LatLng(43.038902, -87.906474),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
-            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                return function () {
-                    infowindow.setContent(locations[i][0]);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
+            var infowindow = new google.maps.InfoWindow({});
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
         }
     </script>
-
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVbmWBtkTpM1rgQ-KS-cK-f-uAS-wwMho&libraries=places&callback=initMap" async defer></script>
 </body>
 </html>
 
