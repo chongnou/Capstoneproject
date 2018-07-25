@@ -15,16 +15,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Hours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cost)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Website)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
         </th>
         <th></th>
     </tr>
@@ -36,16 +27,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Hours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Website)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
@@ -63,17 +45,17 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-         /* Always set the map height explicitly to define the size of the div
+        /* Always set the map height explicitly to define the size of the div
         * element that contains the map. */
-         #map {
-             height: 400px;
-         }
-         /* Optional: Makes the sample page fill the window. */
-         html, body {
-             height: 400px;
-             margin: 0;
-             padding: 0;
-         }
+        #map {
+            height: 400px;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 400px;
+            margin: 0;
+            padding: 0;
+        }
     </style>
     <script>
         // This example requires the Places library. Include the libraries=places
@@ -86,7 +68,7 @@
         function initMap() {
 
             var harley = {
-                info: '<strong>Harley Davidson Museum</strong><br>\
+                info: '<strong>1. Harley Davidson Museum</strong><br>\
                     Hours:<br> Mon 9am–6pm<br>Tue 9am–6pm<br>Wed 9am–6pmM<br>Thu 9am–8pm<br>\
                     Fri 9am–6pm<br>Sat 9am–6pm<br>Sun 9am–6pm<br>\
 					<a href="https://goo.gl/maps/1YF3i2VKQ3Q2">Get Directions</a>',
@@ -95,7 +77,7 @@
             };
 
             var greatlakes = {
-                info: '<strong>Great Lakes Distillery</strong><br>\
+                info: '<strong>2. Great Lakes Distillery</strong><br>\
                     Hours:<br> Mon 11am–10pm<br>Tue 11am–10pm<br>Wed 11am–10pm<br>Thu 11am–10pm<br>\
                     Fri 11am–12pm<br>Sat 11am–12am<br>Sun 11am–8pm<br>\
 					<a href="https://goo.gl/maps/qo6d6ekQNME2">Get Directions</a>',
@@ -104,7 +86,7 @@
             };
 
             var savemilwaukee = {
-                info: '<strong>Save Milwaukee</strong><br>\r\
+                info: '<strong>3. Save Milwaukee</strong><br>\r\
                     Hours:<br> Mon 12–10pm<br>Tue 12–10pm<br>Wed 12–10pm<br>Thu 12–10pm<br>\
                     Fri 12–10pm<br>Sat 12–10pm<br>Sun 12–10pm<br>\
 					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
@@ -113,7 +95,7 @@
             };
 
             var milwaukeepublicmarket = {
-                info: '<strong>Milwaukee Public Market</strong><br>\r\
+                info: '<strong>4. Milwaukee Public Market</strong><br>\r\
                     Hours:<br> Mon 10am-8pm<br>Tue 10am-8pm<br>Wed 10am-8pm<br>Thu 10am-8pm<br>\
                     Fri 10am-8pm<br>Sat 8am-8pm<br>Sun 9am-6pm<br>\
                     <a href="https://goo.gl/maps/J9KrFFyZ3sK2">Get Directions</a>',
@@ -122,145 +104,131 @@
             };
 
             var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
+                info: '<strong>5. Discovery World</strong><br>\r\
+                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pm<br>\
                     Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
 					<a href="https://goo.gl/maps/zrwcZMcGRdF2">Get Directions</a>',
                 lat: 43.036783,
                 long: -87.896090
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var milwaukeeartmuseum = {
+                info: '<strong>6. Milwaukee Art Museum</strong><br>\r\
+                    Hours:<br> Mon 10am-5pm<br>Tue 10am-5pm<br>Wed 10am-5pm<br>Thu 10am-8pm<br>\
+                    Fri 10am-5pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/M64vDYeCEKt">Get Directions</a>',
+                lat: 43.040073,
+                long: -87.897058
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var bettybrinnchildrensmuseum = {
+                info: '<strong>7. Betty Brinn Childrens Museum</strong><br>\r\
+                    Hours:<br> Mon 9am-5pm<br>Tue 9am-5pm<br>Wed 9am-5pm<br>Thu 9am-5pm<br>\
+                    Fri 9am-5pm<br>Sat 9am-5pm<br>Sun 12-5pm<br>\
+					<a href="https://goo.gl/maps/3T3j8R4Kn9C2">Get Directions</a>',
+                lat: 43.038892,
+                long: -87.899875
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var visitmilwaukee = {
+                info: '<strong>8. Visit Milwaukee</strong><br>\r\
+                    Hours:<br> Mon 8am-5pm<br>Tue 8am-5pm<br>Wed 8am-5pm<br>Thu 8am-5pm<br>\
+                    Fri 8am-5pm<br>Sat - Closed<br>Sun - Closed<br>\
+					<a href="https://goo.gl/maps/zrwcZMcGRdF2">Get Directions</a>',
+                lat: 43.038210,
+                long: -87.911079
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var veteranspark = {
+                info: '<strong>9. Veterans Park</strong><br>\r\
+                    Hours:<br> Mon 6am-10pm<br>Tue 6am-10pm<br>Wed 6am-10pm<br>Thu 6am-10pm<br>\
+                    Fri 6am-10pm<br>Sat 6am-10pm<br>Sun 6am-10pm<br>\
+					<a href="https://goo.gl/maps/RLQPj44TERq">Get Directions</a>',
+                lat: 43.045254,
+                long: -87.891459
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var milwaukeepublicmuseum = {
+                info: '<strong>10. Milwaukee Public Museum</strong><br>\r\
+                    Hours:<br> Mon 10am-5pm<br>Tue 10am-5pm<br>Wed 10am-5pm<br>Thu 10am-5pm<br>\
+                    Fri 10am-5pm<br>Sat 9am-5pm<br>Sun 11am-5pm<br>\
+					<a href="https://goo.gl/maps/NeHZFXCp1jG2">Get Directions</a>',
+                lat: 43.040658,
+                long: -87.920843
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var bestplaceatthehistoricpabstbrewery = {
+                info: '<strong>11. Best Place at the Historic Pabst brewery</strong><br>\r\
+                    Hours:<br> Mon 11:30am-6pm<br>Tue - Closed<br>Wed 11:30am-6pm<br>Thu 11:30am-6pm<br>\
+                    Fri 10:30am-6pm<br>Sat 10:30am-6pm<br>Sun 11:30am-6pm<br>\
+					<a href="https://goo.gl/maps/LqbJRvAZowx">Get Directions</a>',
+                lat: 43.045466,
+                long: -87.923418
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var pabstmansion = {
+                info: '<strong>12. The Pabst Mansion</strong><br>\r\
+                    Hours:<br> Mon 10am-4pm<br>Tue 10am-4pm<br>Wed 10am-4pm<br>Thu 10am-4pm<br>\
+                    Fri 10am-4pm<br>Sat 10am-4pm<br>Sun 12-4pm<br>\
+					<a href="https://goo.gl/maps/8VaTG585eWx">Get Directions</a>',
+                lat: 43.039252,
+                long: -87.937982
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var lakefrontbrewery = {
+                info: '<strong>13. Lake Front Brewery</strong><br>\r\
+                    Hours:<br> Mon 11am-9pm<br>Tue 11am-9pm<br>Wed 11am-9pm<br>Thu 11am-9pm<br>\
+                    Fri 11am-9pm<br>Sat 9am-9pm<br>Sun 10am-5pm<br>\
+					<a href="https://goo.gl/maps/2EEHpqtcs8B2">Get Directions</a>',
+                lat: 43.054726,
+                long: -87.905287
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var mitchellparkhorticulturalconservatory = {
+                info: '<strong>14. Mitchell Park Horticultural Conservatory</strong><br>\r\
+                    Hours:<br> Mon 9am-5pm<br>Tue 9am-5pm<br>Wed 9am-5pm<br>Thu 9am-5pm<br>\
+                    Fri 9am-5pm<br>Sat 9am-4pm<br>Sun 9am-4pm<br>\
+					<a href="https://goo.gl/maps/oPvtuUQFod92">Get Directions</a>',
+                lat: 43.026437,
+                long: -87.945948
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var milwaukeecountyzoo = {
+                info: '<strong>15. Milwaukee County Zoo</strong><br>\r\
+                    Hours:<br> Mon 9am-5pm<br>Tue 9am-5pm<br>Wed 9am-5pm<br>Thu 9am-5pm<br>\
+                    Fri 9am-5pm<br>Sat 9am-5pm<br>Sun 9am-5pm<br>\
+					<a href="https://goo.gl/maps/phqrF2VLWnR2">Get Directions</a>',
+                lat: 43.031288,
+                long: -88.040955
             };
 
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
+            var northpointlighthouse = {
+                info: '<strong>16. North Point Lighthouse</strong><br>\r\
+                    Hours:<br> Mon - Closed<br>Tue - Closed<br>Wed - Closed<br>Thu 10am-2pm<br>\
+                    Fri 10am-2pm<br>Sat 1-4pm<br>Sun 1-4pm<br>\
+					<a href="https://goo.gl/maps/aas15Tk43sw">Get Directions</a>',
+                lat: 43.065702,
+                long: -87.871412
             };
-
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
-            };
-
-            var discoveryworld = {
-                info: '<strong>Discovery World</strong><br>\r\
-                    Hours:<br> Mon 9am-4pm<br>Tue 9am-4pm<br>Wed 9am-4pm<br>Thu 9am-4pmbr>\
-                    Fri 9am-4pm<br>Sat 10am-5pm<br>Sun 10am-5pm<br>\
-					<a href="https://goo.gl/maps/gaZyZKK5gaJ2">Get Directions</a>',
-                lat: 43.033447,
-                long: -87.908591
-            };
-
- 
 
             var locations = [
                 [harley.info, harley.lat, harley.long, 0],
                 [greatlakes.info, greatlakes.lat, greatlakes.long, 1],
                 [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
-                [milwaukeepublicmarket.info, milwaukeepublicmarket.lat, milwaukeepublicmarket.long, 2],
-                [discoveryworld.info, discoveryworld.lat, discoveryworld.long, 2],
-                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
-                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
-                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
-                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
-                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
-                [savemilwaukee.info, savemilwaukee.lat, savemilwaukee.long, 2],
+                [milwaukeepublicmarket.info, milwaukeepublicmarket.lat, milwaukeepublicmarket.long, 3],
+                [discoveryworld.info, discoveryworld.lat, discoveryworld.long, 4],
+                [milwaukeeartmuseum.info, milwaukeeartmuseum.lat, milwaukeeartmuseum.long, 5],
+                [bettybrinnchildrensmuseum.info, bettybrinnchildrensmuseum.lat, bettybrinnchildrensmuseum.long, 6],
+                [visitmilwaukee.info, visitmilwaukee.lat, visitmilwaukee.long, 7],
+                [veteranspark.info, veteranspark.lat, veteranspark.long, 8],
+                [milwaukeepublicmuseum.info, milwaukeepublicmuseum.lat, milwaukeepublicmuseum.long, 9],
+                [bestplaceatthehistoricpabstbrewery.info, bestplaceatthehistoricpabstbrewery.lat, bestplaceatthehistoricpabstbrewery.long, 10],
+                [pabstmansion.info, pabstmansion.lat, pabstmansion.long, 11],
+                [lakefrontbrewery.info, lakefrontbrewery.lat, lakefrontbrewery.long, 12],
+                [mitchellparkhorticulturalconservatory.info, mitchellparkhorticulturalconservatory.lat, mitchellparkhorticulturalconservatory.long, 13],
+                [milwaukeecountyzoo.info, milwaukeecountyzoo.lat, milwaukeecountyzoo.long, 14],
+                [northpointlighthouse.info, northpointlighthouse.lat, northpointlighthouse.long, 15],
+
 
             ];
 

@@ -10,107 +10,107 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
-    public class EventListsController : Controller
+    public class NightLivesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: EventLists
+        // GET: NightLives
         public ActionResult Index()
         {
-            return View(db.EventList.ToList());
+            return View(db.NightLives.ToList());
         }
 
-        // GET: EventLists/Details/5
+        // GET: NightLives/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventList eventList = db.EventList.Find(id);
-            if (eventList == null)
+            NightLife nightLife = db.NightLives.Find(id);
+            if (nightLife == null)
             {
                 return HttpNotFound();
             }
-            return View(eventList);
+            return View(nightLife);
         }
 
-        // GET: EventLists/Create
+        // GET: NightLives/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EventLists/Create
+        // POST: NightLives/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,No,Name,Website")] EventList eventList)
+        public ActionResult Create([Bind(Include = "Id,No,Name,Website")] NightLife nightLife)
         {
             if (ModelState.IsValid)
             {
-                db.EventList.Add(eventList);
+                db.NightLives.Add(nightLife);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(eventList);
+            return View(nightLife);
         }
 
-        // GET: EventLists/Edit/5
+        // GET: NightLives/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventList eventList = db.EventList.Find(id);
-            if (eventList == null)
+            NightLife nightLife = db.NightLives.Find(id);
+            if (nightLife == null)
             {
                 return HttpNotFound();
             }
-            return View(eventList);
+            return View(nightLife);
         }
 
-        // POST: EventLists/Edit/5
+        // POST: NightLives/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,No,Name,Website")] EventList eventList)
+        public ActionResult Edit([Bind(Include = "Id,No,Name,Website")] NightLife nightLife)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(eventList).State = EntityState.Modified;
+                db.Entry(nightLife).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(eventList);
+            return View(nightLife);
         }
 
-        // GET: EventLists/Delete/5
+        // GET: NightLives/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventList eventList = db.EventList.Find(id);
-            if (eventList == null)
+            NightLife nightLife = db.NightLives.Find(id);
+            if (nightLife == null)
             {
                 return HttpNotFound();
             }
-            return View(eventList);
+            return View(nightLife);
         }
 
-        // POST: EventLists/Delete/5
+        // POST: NightLives/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EventList eventList = db.EventList.Find(id);
-            db.EventList.Remove(eventList);
+            NightLife nightLife = db.NightLives.Find(id);
+            db.NightLives.Remove(nightLife);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
