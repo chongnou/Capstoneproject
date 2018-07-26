@@ -12,11 +12,15 @@ namespace Capstoneproject.Controllers
 {
     public class RestaurantsController : Controller
     {
+
+        
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Restaurants
         public ActionResult Index()
         {
+            ViewBag.Key = clientkey.SecretKey;
             return View(db.Restaurants.ToList());
         }
 

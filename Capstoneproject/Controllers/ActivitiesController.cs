@@ -17,6 +17,7 @@ namespace Capstoneproject.Controllers
         // GET: Activities
         public ActionResult Index()
         {
+            ViewBag.Key = clientkey.SecretKey;
             return View(db.Activities.ToList());
         }
 
