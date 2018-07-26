@@ -376,18 +376,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Website)
             </td>
-            <td>
-                @Html.ActionLink("Register for Event", "Edit", new { id = item.Id }) 
-            </td>
-            @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+            @if (ViewContext.HttpContext.User.IsInRole("Customer"))
             {
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Reserve a Table!", "Edit", new { id = item.Id })
                 </td>
             }
-        </tr>
+                @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                }
+            </tr>
         }
 
     </table>

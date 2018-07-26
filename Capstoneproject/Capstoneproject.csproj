@@ -228,6 +228,8 @@
     <Compile Include="Models\Activities.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RegisterForEvent.cs" />
+    <Compile Include="Models\ReserveATable.cs" />
     <Compile Include="Models\Restaurants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
