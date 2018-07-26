@@ -37,6 +37,7 @@ namespace Capstoneproject.Controllers
         }
 
         // GET: Activities/Create
+
         public ActionResult Create()
         {
             return View();
@@ -91,6 +92,7 @@ namespace Capstoneproject.Controllers
         }
 
         // GET: Activities/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +110,7 @@ namespace Capstoneproject.Controllers
         // POST: Activities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Activities activities = db.Activities.Find(id);

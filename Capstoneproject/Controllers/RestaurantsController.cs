@@ -10,6 +10,7 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
+
     public class RestaurantsController : Controller
     {
 
@@ -40,6 +41,7 @@ namespace Capstoneproject.Controllers
         }
 
         // GET: Restaurants/Create
+
         public ActionResult Create()
         {
             return View();
@@ -50,6 +52,7 @@ namespace Capstoneproject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult Create([Bind(Include = "Id,No,Name,Website")] Restaurants restaurants)
         {
             if (ModelState.IsValid)
@@ -63,6 +66,7 @@ namespace Capstoneproject.Controllers
         }
 
         // GET: Restaurants/Edit/5
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +86,7 @@ namespace Capstoneproject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult Edit([Bind(Include = "Id,No,Name,Website")] Restaurants restaurants)
         {
             if (ModelState.IsValid)
@@ -94,6 +99,7 @@ namespace Capstoneproject.Controllers
         }
 
         // GET: Restaurants/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,6 +117,7 @@ namespace Capstoneproject.Controllers
         // POST: Restaurants/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+
         public ActionResult DeleteConfirmed(int id)
         {
             Restaurants restaurants = db.Restaurants.Find(id);

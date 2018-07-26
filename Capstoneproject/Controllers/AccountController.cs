@@ -191,7 +191,7 @@ namespace Capstoneproject.Controllers
                         if (result.Succeeded)
                         {
                             await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                            return RedirectToAction("Create", "Customer");
+                            return RedirectToAction("Create", "Customers");
                         }
                         else
                         {
