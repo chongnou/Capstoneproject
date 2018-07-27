@@ -337,9 +337,10 @@
             </td>
             @if (ViewContext.HttpContext.User.IsInRole("Customer"))
             {
-                <td>
-                    @Html.ActionLink("Register for Event", "Register", new { id = item.Id })
-                </td>
+            <td>
+                <a href="/RegisterForEvents" id="registerLink">Register for Event</a>
+            </td>
+
             }
                 @if (ViewContext.HttpContext.User.IsInRole("Admin"))
                 {

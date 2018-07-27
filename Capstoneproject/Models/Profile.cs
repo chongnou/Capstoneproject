@@ -7,12 +7,12 @@ using System.Web;
 
 namespace Capstoneproject.Models
 {
-    public class RegisterForEvent
+    public class Profile
     {
         [Key]
-        public string Id { get; set; }
+        public int ID { get; set; }
+        [Display(Name = "Profile Name")]
         public string Name { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+        public string RegisteredEvents { get; set; }
     }
 }

@@ -202,6 +202,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NightLivesController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\RegisterForEventsController.cs" />
+    <Compile Include="Controllers\ReserveATablesController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -219,6 +222,18 @@
     <Compile Include="Migrations\201807252145502_renamed models.Designer.cs">
       <DependentUpon>201807252145502_renamed models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807262027223_added register and reserve models.cs" />
+    <Compile Include="Migrations\201807262027223_added register and reserve models.Designer.cs">
+      <DependentUpon>201807262027223_added register and reserve models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807270048290_added profile model.cs" />
+    <Compile Include="Migrations\201807270048290_added profile model.Designer.cs">
+      <DependentUpon>201807270048290_added profile model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807270055085_fixed identity model.cs" />
+    <Compile Include="Migrations\201807270055085_fixed identity model.Designer.cs">
+      <DependentUpon>201807270055085_fixed identity model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -228,6 +243,7 @@
     <Compile Include="Models\Activities.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\RegisterForEvent.cs" />
     <Compile Include="Models\ReserveATable.cs" />
     <Compile Include="Models\Restaurants.cs" />
@@ -330,6 +346,22 @@
     <Content Include="Views\Restaurants\Details.cshtml" />
     <Content Include="Views\Restaurants\Edit.cshtml" />
     <Content Include="Views\Restaurants\Index.cshtml" />
+    <Content Include="Views\RegisterForEvents\Create.cshtml" />
+    <Content Include="Views\RegisterForEvents\Delete.cshtml" />
+    <Content Include="Views\RegisterForEvents\Details.cshtml" />
+    <Content Include="Views\RegisterForEvents\Edit.cshtml" />
+    <Content Include="Views\RegisterForEvents\Index.cshtml" />
+    <Content Include="Views\ReserveATables\Create.cshtml" />
+    <Content Include="Views\ReserveATables\Delete.cshtml" />
+    <Content Include="Views\ReserveATables\Details.cshtml" />
+    <Content Include="Views\ReserveATables\Edit.cshtml" />
+    <Content Include="Views\ReserveATables\Index.cshtml" />
+    <Content Include="Views\Profiles\Create.cshtml" />
+    <Content Include="Views\Profiles\Delete.cshtml" />
+    <Content Include="Views\Profiles\Details.cshtml" />
+    <Content Include="Views\Profiles\Edit.cshtml" />
+    <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\RegisterForEvents\RegisterforEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -356,6 +388,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807252145502_renamed models.resx">
       <DependentUpon>201807252145502_renamed models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807262027223_added register and reserve models.resx">
+      <DependentUpon>201807262027223_added register and reserve models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807270048290_added profile model.resx">
+      <DependentUpon>201807270048290_added profile model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807270055085_fixed identity model.resx">
+      <DependentUpon>201807270055085_fixed identity model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
