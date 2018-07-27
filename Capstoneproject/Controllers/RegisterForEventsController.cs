@@ -17,16 +17,13 @@ namespace Capstoneproject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: RegisterForEvents
         public ActionResult Index()
         {
-            return View(db.RegisterForEvents.ToList());
+            return View();
         }
 
         public ActionResult Register()
         {
-            ApplicationDbContext db = new ApplicationDbContext();
-            
             return View();
         }
 
@@ -41,10 +38,9 @@ namespace Capstoneproject.Controllers
                     db.SaveChanges();
                 }
                 ModelState.Clear();
-                ViewBag.Message = account.Name + "" + account.PhoneNumber + "" + account.Email + "Successfully Registered!";
+                ViewBag.Message = account.Name+""+account.EventName+""+account.Email+"Successfully Registered!";
             }
             return View();
-
         }
     }
 }
