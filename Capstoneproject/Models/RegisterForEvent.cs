@@ -7,12 +7,14 @@ using System.Web;
 
 namespace Capstoneproject.Models
 {
-    public class RegisterForEvent
+    public class Registerforevent
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string EventName { get; set; }
         public string Email { get; set; }
+
+
     }
 }

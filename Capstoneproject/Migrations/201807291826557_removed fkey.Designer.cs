@@ -7,13 +7,13 @@ namespace Capstoneproject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addedphonenumbertoreserveatablemodel : IMigrationMetadata
+    public sealed partial class removedfkey : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedphonenumbertoreserveatablemodel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(removedfkey));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807270225588_added phonenumber to reserveatable model"; }
+            get { return "201807291826557_removed fkey"; }
         }
         
         string IMigrationMetadata.Source

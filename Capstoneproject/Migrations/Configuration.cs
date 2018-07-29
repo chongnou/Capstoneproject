@@ -22,7 +22,8 @@ namespace Capstoneproject.Migrations
             context.Roles.AddOrUpdate(
                 s => s.Name,
                     new IdentityRole { Name = "Admin" },
-                    new IdentityRole { Name = "Customer" }
+                    new IdentityRole { Name = "Customer" },
+                    new IdentityRole { Name = "Registerforevent" }
                 );
         }
 

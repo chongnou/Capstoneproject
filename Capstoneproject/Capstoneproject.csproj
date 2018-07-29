@@ -203,48 +203,15 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NightLivesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
-    <Compile Include="Controllers\RegisterForEventsController.cs" />
-    <Compile Include="Controllers\ReserveATablesController.cs" />
+    <Compile Include="Controllers\RegisterforeventsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="key.cs" />
-    <Compile Include="Migrations\201807252033472_initialMigration.cs" />
-    <Compile Include="Migrations\201807252033472_initialMigration.Designer.cs">
-      <DependentUpon>201807252033472_initialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807252057101_pulled.cs" />
-    <Compile Include="Migrations\201807252057101_pulled.Designer.cs">
-      <DependentUpon>201807252057101_pulled.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807252145502_renamed models.cs" />
-    <Compile Include="Migrations\201807252145502_renamed models.Designer.cs">
-      <DependentUpon>201807252145502_renamed models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807262027223_added register and reserve models.cs" />
-    <Compile Include="Migrations\201807262027223_added register and reserve models.Designer.cs">
-      <DependentUpon>201807262027223_added register and reserve models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270048290_added profile model.cs" />
-    <Compile Include="Migrations\201807270048290_added profile model.Designer.cs">
-      <DependentUpon>201807270048290_added profile model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270055085_fixed identity model.cs" />
-    <Compile Include="Migrations\201807270055085_fixed identity model.Designer.cs">
-      <DependentUpon>201807270055085_fixed identity model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270146435_added eventname to eventlist model.cs" />
-    <Compile Include="Migrations\201807270146435_added eventname to eventlist model.Designer.cs">
-      <DependentUpon>201807270146435_added eventname to eventlist model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270156231_fixed .cs" />
-    <Compile Include="Migrations\201807270156231_fixed .Designer.cs">
-      <DependentUpon>201807270156231_fixed .cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807270225588_added phonenumber to reserveatable model.cs" />
-    <Compile Include="Migrations\201807270225588_added phonenumber to reserveatable model.Designer.cs">
-      <DependentUpon>201807270225588_added phonenumber to reserveatable model.cs</DependentUpon>
+    <Compile Include="Migrations\201807291826557_removed fkey.cs" />
+    <Compile Include="Migrations\201807291826557_removed fkey.Designer.cs">
+      <DependentUpon>201807291826557_removed fkey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -256,8 +223,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Profile.cs" />
-    <Compile Include="Models\RegisterForEvent.cs" />
-    <Compile Include="Models\ReserveATable.cs" />
+    <Compile Include="Models\Registerforevent.cs" />
     <Compile Include="Models\Restaurants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -363,10 +329,11 @@
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
-    <Content Include="Views\RegisterForEvents\RegisterforEvent.cshtml" />
-    <Content Include="Views\RegisterForEvents\Index.cshtml" />
-    <Content Include="Views\ReserveATables\ReserveaTable.cshtml" />
-    <Content Include="Views\ReserveATables\Index.cshtml" />
+    <Content Include="Views\Registerforevents\Create.cshtml" />
+    <Content Include="Views\Registerforevents\Delete.cshtml" />
+    <Content Include="Views\Registerforevents\Details.cshtml" />
+    <Content Include="Views\Registerforevents\Edit.cshtml" />
+    <Content Include="Views\Registerforevents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,32 +352,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807252033472_initialMigration.resx">
-      <DependentUpon>201807252033472_initialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807252057101_pulled.resx">
-      <DependentUpon>201807252057101_pulled.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807252145502_renamed models.resx">
-      <DependentUpon>201807252145502_renamed models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807262027223_added register and reserve models.resx">
-      <DependentUpon>201807262027223_added register and reserve models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270048290_added profile model.resx">
-      <DependentUpon>201807270048290_added profile model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270055085_fixed identity model.resx">
-      <DependentUpon>201807270055085_fixed identity model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270146435_added eventname to eventlist model.resx">
-      <DependentUpon>201807270146435_added eventname to eventlist model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270156231_fixed .resx">
-      <DependentUpon>201807270156231_fixed .cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807270225588_added phonenumber to reserveatable model.resx">
-      <DependentUpon>201807270225588_added phonenumber to reserveatable model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807291826557_removed fkey.resx">
+      <DependentUpon>201807291826557_removed fkey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

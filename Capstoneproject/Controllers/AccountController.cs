@@ -198,6 +198,20 @@ namespace Capstoneproject.Controllers
                             AddErrors(result);
                         }
                     }
+                    else if (model.Role == "Registerforevent")
+                    {
+                        userManager.AddToRole(user.Id, "Registerforevent");
+
+                        if (result.Succeeded)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                            return RedirectToAction("Create", "Registerforevent");
+                        }
+                        else
+                        {
+                            AddErrors(result);
+                        }
+                    }
                     else
                     {
                         return View(model);

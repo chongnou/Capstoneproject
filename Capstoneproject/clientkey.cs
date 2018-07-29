@@ -7,5 +7,6 @@ namespace Capstoneproject
 {
     public class clientkey
     {
+        public static dynamic SecretKey { get; internal set; }
     }
 }

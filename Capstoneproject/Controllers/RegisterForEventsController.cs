@@ -1,46 +1,149 @@
 ﻿using System;
-using System.Globalization;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using Capstoneproject.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Capstoneproject.Controllers
 {
-    public class RegisterForEventsController : Controller
+    public class RegisterforeventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult Index()
+        // GET: Registerforevents
+        public ViewResult Index(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.EventSortParm = sortOrder == "Name" ? "Event Name" : "Email";
+            var register = from s in db.Registerforeventmodels
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                register = register.Where(s => s.Name.Contains(searchString)
+                                       || s.Email.Contains(searchString)
+                                       || s.EventName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "Name":
+                    register = register.OrderByDescending(s => s.Name);
+                    break;
+                case "Event":
+                    register = register.OrderBy(s => s.EventName);
+                    break;
+                case "Email":
+                    register = register.OrderByDescending(s => s.Email);
+                    break;
+            }
+            return View(register.ToList());
+        }
+
+        // GET: Registerforevents/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
+            if (registerforevent == null)
+            {
+                return HttpNotFound();
+            }
+            return View(registerforevent);
+        }
+
+        // GET: Registerforevents/Create
+        public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult Register()
-        {
-            return View();
-        }
-
+        // POST: Registerforevents/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Register(RegisterForEvent account)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Name,EventName,Email")] Registerforevent registerforevent)
         {
             if (ModelState.IsValid)
             {
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
-                    db.RegisterForEvents.Add(account);
-                    db.SaveChanges();
-                }
-                ModelState.Clear();
-                ViewBag.Message = account.Name+""+account.EventName+""+account.Email+"Successfully Registered!";
+                db.Registerforeventmodels.Add(registerforevent);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return View();
+
+            return View(registerforevent);
+        }
+
+        // GET: Registerforevents/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
+            if (registerforevent == null)
+            {
+                return HttpNotFound();
+            }
+            return View(registerforevent);
+        }
+
+        // POST: Registerforevents/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Name,EventName,Email")] Registerforevent registerforevent)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(registerforevent).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(registerforevent);
+        }
+
+        // GET: Registerforevents/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
+            if (registerforevent == null)
+            {
+                return HttpNotFound();
+            }
+            return View(registerforevent);
+        }
+
+        // POST: Registerforevents/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
+            db.Registerforeventmodels.Remove(registerforevent);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
