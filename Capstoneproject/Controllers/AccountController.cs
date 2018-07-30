@@ -212,6 +212,34 @@ namespace Capstoneproject.Controllers
                             AddErrors(result);
                         }
                     }
+                    else if (model.Role == "Reserveatable")
+                    {
+                        userManager.AddToRole(user.Id, "Reserveatable");
+
+                        if (result.Succeeded)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                            return RedirectToAction("Create", "Reserveatable");
+                        }
+                        else
+                        {
+                            AddErrors(result);
+                        }
+                    }
+                    else if (model.Role == "Comments")
+                    {
+                        userManager.AddToRole(user.Id, "Comments");
+
+                        if (result.Succeeded)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                            return RedirectToAction("Create", "Comments");
+                        }
+                        else
+                        {
+                            AddErrors(result);
+                        }
+                    }
                     else
                     {
                         return View(model);

@@ -1,0 +1,67 @@
+﻿@model Capstoneproject.Models.Comments
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

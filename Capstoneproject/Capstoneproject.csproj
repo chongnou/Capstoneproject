@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -209,9 +210,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="key.cs" />
-    <Compile Include="Migrations\201807291826557_removed fkey.cs" />
-    <Compile Include="Migrations\201807291826557_removed fkey.Designer.cs">
-      <DependentUpon>201807291826557_removed fkey.cs</DependentUpon>
+    <Compile Include="Migrations\201807302224520_added post to comment model.cs" />
+    <Compile Include="Migrations\201807302224520_added post to comment model.Designer.cs">
+      <DependentUpon>201807302224520_added post to comment model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -334,6 +335,11 @@
     <Content Include="Views\Registerforevents\Details.cshtml" />
     <Content Include="Views\Registerforevents\Edit.cshtml" />
     <Content Include="Views\Registerforevents\Index.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -352,8 +358,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807291826557_removed fkey.resx">
-      <DependentUpon>201807291826557_removed fkey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807302224520_added post to comment model.resx">
+      <DependentUpon>201807302224520_added post to comment model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

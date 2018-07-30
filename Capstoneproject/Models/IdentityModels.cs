@@ -37,8 +37,8 @@ namespace Capstoneproject.Models
         public DbSet<Activities> Activities { get; set; }
         public DbSet<Restaurants> Restaurants { get; set; }
         public DbSet<NightLife> NightLives { get; set; }
-        public DbSet<Registerforevent> Registerforeventmodels { get; set; }
+        public DbSet<Registerforevent> Registerforevents { get; set; }
         public DbSet<Profile> Profiles { get; set; }
-        
+        public DbSet<Comments> Comments { get; set; }
     }
 }

@@ -7,13 +7,13 @@ namespace Capstoneproject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class removedfkey : IMigrationMetadata
+    public sealed partial class addedposttocommentmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removedfkey));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedposttocommentmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807291826557_removed fkey"; }
+            get { return "201807302224520_added post to comment model"; }
         }
         
         string IMigrationMetadata.Source

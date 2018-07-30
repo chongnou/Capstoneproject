@@ -19,7 +19,7 @@ namespace Capstoneproject.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.EventSortParm = sortOrder == "Name" ? "Event Name" : "Email";
-            var register = from s in db.Registerforeventmodels
+            var register = from s in db.Registerforevents
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -49,7 +49,7 @@ namespace Capstoneproject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
+            Registerforevent registerforevent = db.Registerforevents.Find(id);
             if (registerforevent == null)
             {
                 return HttpNotFound();
@@ -72,7 +72,7 @@ namespace Capstoneproject.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Registerforeventmodels.Add(registerforevent);
+                db.Registerforevents.Add(registerforevent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -87,7 +87,7 @@ namespace Capstoneproject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
+            Registerforevent registerforevent = db.Registerforevents.Find(id);
             if (registerforevent == null)
             {
                 return HttpNotFound();
@@ -118,7 +118,7 @@ namespace Capstoneproject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
+            Registerforevent registerforevent = db.Registerforevents.Find(id);
             if (registerforevent == null)
             {
                 return HttpNotFound();
@@ -131,8 +131,8 @@ namespace Capstoneproject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Registerforevent registerforevent = db.Registerforeventmodels.Find(id);
-            db.Registerforeventmodels.Remove(registerforevent);
+            Registerforevent registerforevent = db.Registerforevents.Find(id);
+            db.Registerforevents.Remove(registerforevent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
