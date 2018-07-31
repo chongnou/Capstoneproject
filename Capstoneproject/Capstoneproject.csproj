@@ -205,6 +205,8 @@
     <Compile Include="Controllers\NightLivesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\RegisterforeventsController.cs" />
+    <Compile Include="Controllers\ReserveatablesController.cs" />
+    <Compile Include="Controllers\ReserveviptablesController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -341,6 +343,16 @@
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\Reserveviptables\Create.cshtml" />
+    <Content Include="Views\Reserveviptables\Delete.cshtml" />
+    <Content Include="Views\Reserveviptables\Details.cshtml" />
+    <Content Include="Views\Reserveviptables\Edit.cshtml" />
+    <Content Include="Views\Reserveviptables\Index.cshtml" />
+    <Content Include="Views\Reserveatables\Create.cshtml" />
+    <Content Include="Views\Reserveatables\Delete.cshtml" />
+    <Content Include="Views\Reserveatables\Details.cshtml" />
+    <Content Include="Views\Reserveatables\Edit.cshtml" />
+    <Content Include="Views\Reserveatables\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
