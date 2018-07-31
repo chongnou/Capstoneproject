@@ -10,6 +10,7 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
+    [Authorize]
     public class AdminsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

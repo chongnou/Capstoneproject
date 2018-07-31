@@ -10,12 +10,9 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
-
+    [Authorize]
     public class RestaurantsController : Controller
     {
-
-        
-
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Restaurants

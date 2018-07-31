@@ -10,6 +10,7 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
+    [Authorize]
     public class ReserveatablesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

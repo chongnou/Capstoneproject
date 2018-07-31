@@ -10,6 +10,7 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
+    [Authorize]
     public class RegisterforeventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +18,6 @@ namespace Capstoneproject.Controllers
         // GET: Registerforevents
         public ViewResult Index(string sortOrder, string searchString)
         {
-
             var register = from s in db.Registerforevents
                            select s;
             if (!String.IsNullOrEmpty(searchString))
