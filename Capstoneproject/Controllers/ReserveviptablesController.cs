@@ -15,9 +15,37 @@ namespace Capstoneproject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reserveviptables
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.Reserveviptables.ToList());
+            var register = from s in db.Reserveviptables
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                register = register.Where(s => s.Name.Contains(searchString)
+                                       || s.BarName.Contains(searchString)
+                                       || s.PhoneNumber.Contains(searchString)
+                                       || s.PartySize.Contains(searchString)
+                                       || s.Email.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "Name":
+                    register = register.OrderByDescending(s => s.Name);
+                    break;
+                case "Restaurant Name":
+                    register = register.OrderBy(s => s.BarName);
+                    break;
+                case "Phone Number":
+                    register = register.OrderByDescending(s => s.PhoneNumber);
+                    break;
+                case "Party Size":
+                    register = register.OrderByDescending(s => s.PartySize);
+                    break;
+                case "Email":
+                    register = register.OrderByDescending(s => s.Email);
+                    break;
+            }
+            return View(register.ToList());
         }
 
         // GET: Reserveviptables/Details/5

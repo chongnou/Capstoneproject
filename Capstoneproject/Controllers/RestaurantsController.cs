@@ -53,7 +53,7 @@ namespace Capstoneproject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create([Bind(Include = "Id,No,Name,Website")] Restaurants restaurants)
+        public ActionResult Create([Bind(Include = "Id,No,Name")] Restaurants restaurants)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace Capstoneproject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Edit([Bind(Include = "Id,No,Name,Website")] Restaurants restaurants)
+        public ActionResult Edit([Bind(Include = "Id,No,Name")] Restaurants restaurants)
         {
             if (ModelState.IsValid)
             {

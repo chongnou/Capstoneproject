@@ -15,9 +15,33 @@ namespace Capstoneproject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reserveatables
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.Reserveatables.ToList());
+            var register = from s in db.Reserveatables
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                register = register.Where(s => s.Name.Contains(searchString)
+                                       || s.RestaurantName.Contains(searchString)
+                                       || s.PhoneNumber.Contains(searchString)
+                                       || s.Email.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "Name":
+                    register = register.OrderByDescending(s => s.Name);
+                    break;
+                case "Restaurant Name":
+                    register = register.OrderBy(s => s.RestaurantName);
+                    break;
+                case "Phone Number":
+                    register = register.OrderByDescending(s => s.PhoneNumber);
+                    break;
+                case "Email":
+                    register = register.OrderByDescending(s => s.Email);
+                    break;
+            }
+            return View(register.ToList());
         }
 
         // GET: Reserveatables/Details/5

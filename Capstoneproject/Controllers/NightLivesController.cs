@@ -17,6 +17,7 @@ namespace Capstoneproject.Controllers
         // GET: NightLives
         public ActionResult Index()
         {
+            ViewBag.Key = clientkey.SecretKey;
             return View(db.NightLives.ToList());
         }
 
@@ -46,7 +47,7 @@ namespace Capstoneproject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,No,Name,Website")] NightLife nightLife)
+        public ActionResult Create([Bind(Include = "Id,No,Name")] NightLife nightLife)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace Capstoneproject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,No,Name,Website")] NightLife nightLife)
+        public ActionResult Edit([Bind(Include = "Id,No,Name")] NightLife nightLife)
         {
             if (ModelState.IsValid)
             {

@@ -13,7 +13,7 @@ namespace Capstoneproject.Models
         public string Name { get; set; }
         public string BarName { get; set; }
         public string PhoneNumber { get; set; }
-        public int PartySize { get; set; }
+        public string PartySize { get; set; }
         public string Email { get; set; }
     }
 }

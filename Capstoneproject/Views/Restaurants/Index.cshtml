@@ -358,9 +358,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Website)
-            </th>
             <th></th>
         </tr>
 
@@ -373,13 +370,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Website)
-            </td>
             @if (ViewContext.HttpContext.User.IsInRole("Customer"))
             {
                 <td>
-                    <a href="/ReserveaTables" id="registerLink">Reserve a Table</a>
+                    <a href="/Reserveatables/Create" id="registerLink">Reserve a Table</a>
                 </td>
             }
             @if (ViewContext.HttpContext.User.IsInRole("Admin"))

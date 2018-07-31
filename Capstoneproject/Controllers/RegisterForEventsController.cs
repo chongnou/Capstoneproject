@@ -17,8 +17,7 @@ namespace Capstoneproject.Controllers
         // GET: Registerforevents
         public ViewResult Index(string sortOrder, string searchString)
         {
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.EventSortParm = sortOrder == "Name" ? "Event Name" : "Email";
+
             var register = from s in db.Registerforevents
                            select s;
             if (!String.IsNullOrEmpty(searchString))

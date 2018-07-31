@@ -224,6 +224,14 @@
     <Compile Include="Migrations\201807310215281_updated models.Designer.cs">
       <DependentUpon>201807310215281_updated models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807310249488_fixed models.cs" />
+    <Compile Include="Migrations\201807310249488_fixed models.Designer.cs">
+      <DependentUpon>201807310249488_fixed models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807310314205_updated.cs" />
+    <Compile Include="Migrations\201807310314205_updated.Designer.cs">
+      <DependentUpon>201807310314205_updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -379,6 +387,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310215281_updated models.resx">
       <DependentUpon>201807310215281_updated models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310249488_fixed models.resx">
+      <DependentUpon>201807310249488_fixed models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310314205_updated.resx">
+      <DependentUpon>201807310314205_updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
