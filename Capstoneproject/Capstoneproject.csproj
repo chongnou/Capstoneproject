@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\BarcommentsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EventCommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Controllers\RegisterforeventsController.cs" />
     <Compile Include="Controllers\ReserveatablesController.cs" />
     <Compile Include="Controllers\ReserveviptablesController.cs" />
+    <Compile Include="Controllers\RestaurantcommentsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,6 +241,18 @@
     <Compile Include="Migrations\201808011434528_added event comment box.cs" />
     <Compile Include="Migrations\201808011434528_added event comment box.Designer.cs">
       <DependentUpon>201808011434528_added event comment box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808011603430_added 2 models.cs" />
+    <Compile Include="Migrations\201808011603430_added 2 models.Designer.cs">
+      <DependentUpon>201808011603430_added 2 models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808011604468_updated identity model.cs" />
+    <Compile Include="Migrations\201808011604468_updated identity model.Designer.cs">
+      <DependentUpon>201808011604468_updated identity model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808011619271_updated1.cs" />
+    <Compile Include="Migrations\201808011619271_updated1.Designer.cs">
+      <DependentUpon>201808011619271_updated1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -370,6 +384,16 @@
     <Content Include="Views\EventComments\Details.cshtml" />
     <Content Include="Views\EventComments\Edit.cshtml" />
     <Content Include="Views\EventComments\Index.cshtml" />
+    <Content Include="Views\Restaurantcomments\Create.cshtml" />
+    <Content Include="Views\Restaurantcomments\Delete.cshtml" />
+    <Content Include="Views\Restaurantcomments\Details.cshtml" />
+    <Content Include="Views\Restaurantcomments\Edit.cshtml" />
+    <Content Include="Views\Restaurantcomments\Index.cshtml" />
+    <Content Include="Views\Barcomments\Create.cshtml" />
+    <Content Include="Views\Barcomments\Delete.cshtml" />
+    <Content Include="Views\Barcomments\Details.cshtml" />
+    <Content Include="Views\Barcomments\Edit.cshtml" />
+    <Content Include="Views\Barcomments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -408,6 +432,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808011434528_added event comment box.resx">
       <DependentUpon>201808011434528_added event comment box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011603430_added 2 models.resx">
+      <DependentUpon>201808011603430_added 2 models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011604468_updated identity model.resx">
+      <DependentUpon>201808011604468_updated identity model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011619271_updated1.resx">
+      <DependentUpon>201808011619271_updated1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

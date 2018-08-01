@@ -10,110 +10,110 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
-    public class EventCommentsController : Controller
+    public class BarcommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: EventComments
+        // GET: Barcomments
         public ActionResult Index()
         {
-            return View(db.Eventcomments.ToList());
+            return View(db.Barcomments.ToList());
         }
 
-        // GET: EventComments/Details/5
+        // GET: Barcomments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventComments eventComments = db.Eventcomments.Find(id);
-            if (eventComments == null)
+            Barcomments barcomments = db.Barcomments.Find(id);
+            if (barcomments == null)
             {
                 return HttpNotFound();
             }
-            return View(eventComments);
+            return View(barcomments);
         }
 
-        // GET: EventComments/Create
+        // GET: Barcomments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EventComments/Create
+        // POST: Barcomments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,EventName,Comment,PostDate")] EventComments eventComments)
+        public ActionResult Create([Bind(Include = "Id,Name,BarName,Comment,PostDate")] Barcomments barcomments)
         {
             if (ModelState.IsValid)
             {
-                eventComments.PostDate = DateTime.Today;
-                db.Eventcomments.Add(eventComments);
+                barcomments.PostDate = DateTime.Today;
+                db.Barcomments.Add(barcomments);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Activities");
+                return RedirectToAction("Index", "NightLives");
             }
 
-            return View(eventComments);
+            return View(barcomments);
         }
 
-        // GET: EventComments/Edit/5
+        // GET: Barcomments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventComments eventComments = db.Eventcomments.Find(id);
-            if (eventComments == null)
+            Barcomments barcomments = db.Barcomments.Find(id);
+            if (barcomments == null)
             {
                 return HttpNotFound();
             }
-            return View(eventComments);
+            return View(barcomments);
         }
 
-        // POST: EventComments/Edit/5
+        // POST: Barcomments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,EventName,Comment,PostDate")] EventComments eventComments)
+        public ActionResult Edit([Bind(Include = "Id,Name,BarName,Comment,PostDate")] Barcomments barcomments)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(eventComments).State = EntityState.Modified;
+                db.Entry(barcomments).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "Activities");
+                return RedirectToAction("Index", "NightLives");
             }
-            return View(eventComments);
+            return View(barcomments);
         }
 
-        // GET: EventComments/Delete/5
+        // GET: Barcomments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventComments eventComments = db.Eventcomments.Find(id);
-            if (eventComments == null)
+            Barcomments barcomments = db.Barcomments.Find(id);
+            if (barcomments == null)
             {
                 return HttpNotFound();
             }
-            return View(eventComments);
+            return View(barcomments);
         }
 
-        // POST: EventComments/Delete/5
+        // POST: Barcomments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EventComments eventComments = db.Eventcomments.Find(id);
-            db.Eventcomments.Remove(eventComments);
+            Barcomments barcomments = db.Barcomments.Find(id);
+            db.Barcomments.Remove(barcomments);
             db.SaveChanges();
-            return RedirectToAction("Index", "Activities");
+            return RedirectToAction("Index", "NightLives");
         }
 
         protected override void Dispose(bool disposing)

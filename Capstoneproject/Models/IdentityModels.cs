@@ -40,6 +40,8 @@ namespace Capstoneproject.Models
         public DbSet<Registerforevent> Registerforevents { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<EventComments> Eventcomments { get; set; }
+        public DbSet<Restaurantcomments> Restaurantcomments { get; set; }
+        public DbSet<Barcomments> Barcomments { get; set; }
         public DbSet<Reserveatable> Reserveatables { get; set; }
         public DbSet<Reserveviptable> Reserveviptables { get; set; }
     }

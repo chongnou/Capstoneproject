@@ -10,110 +10,110 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
-    public class EventCommentsController : Controller
+    public class RestaurantcommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: EventComments
+        // GET: Restaurantcomments
         public ActionResult Index()
         {
-            return View(db.Eventcomments.ToList());
+            return View(db.Restaurantcomments.ToList());
         }
 
-        // GET: EventComments/Details/5
+        // GET: Restaurantcomments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventComments eventComments = db.Eventcomments.Find(id);
-            if (eventComments == null)
+            Restaurantcomments restaurantcomments = db.Restaurantcomments.Find(id);
+            if (restaurantcomments == null)
             {
                 return HttpNotFound();
             }
-            return View(eventComments);
+            return View(restaurantcomments);
         }
 
-        // GET: EventComments/Create
+        // GET: Restaurantcomments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EventComments/Create
+        // POST: Restaurantcomments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,EventName,Comment,PostDate")] EventComments eventComments)
+        public ActionResult Create([Bind(Include = "Id,Name,RestaurantName,Comment,PostDate")] Restaurantcomments restaurantcomments)
         {
             if (ModelState.IsValid)
             {
-                eventComments.PostDate = DateTime.Today;
-                db.Eventcomments.Add(eventComments);
+                restaurantcomments.PostDate = DateTime.Today;
+                db.Restaurantcomments.Add(restaurantcomments);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Activities");
+                return RedirectToAction("Index", "Restaurants");
             }
 
-            return View(eventComments);
+            return View(restaurantcomments);
         }
 
-        // GET: EventComments/Edit/5
+        // GET: Restaurantcomments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventComments eventComments = db.Eventcomments.Find(id);
-            if (eventComments == null)
+            Restaurantcomments restaurantcomments = db.Restaurantcomments.Find(id);
+            if (restaurantcomments == null)
             {
                 return HttpNotFound();
             }
-            return View(eventComments);
+            return View(restaurantcomments);
         }
 
-        // POST: EventComments/Edit/5
+        // POST: Restaurantcomments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,EventName,Comment,PostDate")] EventComments eventComments)
+        public ActionResult Edit([Bind(Include = "Id,Name,RestaurantName,Comment,PostDate")] Restaurantcomments restaurantcomments)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(eventComments).State = EntityState.Modified;
+                db.Entry(restaurantcomments).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "Activities");
+                return RedirectToAction("Index", "Restaurants");
             }
-            return View(eventComments);
+            return View(restaurantcomments);
         }
 
-        // GET: EventComments/Delete/5
+        // GET: Restaurantcomments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EventComments eventComments = db.Eventcomments.Find(id);
-            if (eventComments == null)
+            Restaurantcomments restaurantcomments = db.Restaurantcomments.Find(id);
+            if (restaurantcomments == null)
             {
                 return HttpNotFound();
             }
-            return View(eventComments);
+            return View(restaurantcomments);
         }
 
-        // POST: EventComments/Delete/5
+        // POST: Restaurantcomments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EventComments eventComments = db.Eventcomments.Find(id);
-            db.Eventcomments.Remove(eventComments);
+            Restaurantcomments restaurantcomments = db.Restaurantcomments.Find(id);
+            db.Restaurantcomments.Remove(restaurantcomments);
             db.SaveChanges();
-            return RedirectToAction("Index", "Activities");
+            return RedirectToAction("Index", "Restaurants");
         }
 
         protected override void Dispose(bool disposing)
