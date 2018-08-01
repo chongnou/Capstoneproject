@@ -24,6 +24,8 @@
                     <li>@Html.ActionLink("Activities", "Index", "Activities")</li>
                     <li>@Html.ActionLink("Restaurant", "Index", "Restaurants")</li>
                     <li>@Html.ActionLink("NightLife", "Index", "NightLives")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -32,9 +34,9 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        @*<footer>
             <p>&copy; @DateTime.Now.Year - Chong Vangs ASP.NET Application</p>
-        </footer>
+        </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
