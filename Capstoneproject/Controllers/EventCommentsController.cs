@@ -10,117 +10,108 @@ using Capstoneproject.Models;
 
 namespace Capstoneproject.Controllers
 {
-    [Authorize]
-    public class CommentsController : Controller
+    public class EventCommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Comments
+        // GET: EventComments
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            return View(db.Eventcomments.ToList());
         }
 
-        // GET: Comments/Details/5
+        // GET: EventComments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comments comments = db.Comments.Find(id);
-            if (comments == null)
+            EventComments eventComments = db.Eventcomments.Find(id);
+            if (eventComments == null)
             {
                 return HttpNotFound();
             }
-            return View(comments);
+            return View(eventComments);
         }
 
-        // GET: Comments/Create
+        // GET: EventComments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Comments/Create
+        // POST: EventComments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,EventName,RestaurantName,BarName,Post,PostDate")] Comments comments)
+        public ActionResult Create([Bind(Include = "Id,Name,EventName,Comment,PostDate")] EventComments eventComments)
         {
             if (ModelState.IsValid)
             {
-                comments.PostDate = DateTime.Now;
-                db.Comments.Add(comments);
+                eventComments.PostDate = DateTime.Today;
+                db.Eventcomments.Add(eventComments);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Activities");
             }
 
-            return View(comments);
+            return View(eventComments);
         }
 
-        public ActionResult Post(int id)
-        {
-            Comments udpate = db.Comments.ToList().Find(u => u.Id == id);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-
-        // GET: Comments/Edit/5
+        // GET: EventComments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comments comments = db.Comments.Find(id);
-            if (comments == null)
+            EventComments eventComments = db.Eventcomments.Find(id);
+            if (eventComments == null)
             {
                 return HttpNotFound();
             }
-            return View(comments);
+            return View(eventComments);
         }
 
-        // POST: Comments/Edit/5
+        // POST: EventComments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,EventName,RestaurantName,BarName,Post,PostDate")] Comments comments)
+        public ActionResult Edit([Bind(Include = "Id,Name,EventName,Comment,PostDate")] EventComments eventComments)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comments).State = EntityState.Modified;
+                db.Entry(eventComments).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comments);
+            return View(eventComments);
         }
 
-        // GET: Comments/Delete/5
+        // GET: EventComments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comments comments = db.Comments.Find(id);
-            if (comments == null)
+            EventComments eventComments = db.Eventcomments.Find(id);
+            if (eventComments == null)
             {
                 return HttpNotFound();
             }
-            return View(comments);
+            return View(eventComments);
         }
 
-        // POST: Comments/Delete/5
+        // POST: EventComments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comments comments = db.Comments.Find(id);
-            db.Comments.Remove(comments);
+            EventComments eventComments = db.Eventcomments.Find(id);
+            db.Eventcomments.Remove(eventComments);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

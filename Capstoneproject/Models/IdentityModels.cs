@@ -39,7 +39,7 @@ namespace Capstoneproject.Models
         public DbSet<NightLife> NightLives { get; set; }
         public DbSet<Registerforevent> Registerforevents { get; set; }
         public DbSet<Profile> Profiles { get; set; }
-        public DbSet<Comments> Comments { get; set; }
+        public DbSet<EventComments> Eventcomments { get; set; }
         public DbSet<Reserveatable> Reserveatables { get; set; }
         public DbSet<Reserveviptable> Reserveviptables { get; set; }
     }

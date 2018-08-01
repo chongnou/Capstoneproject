@@ -22,6 +22,7 @@ namespace Capstoneproject.Controllers
             return View(db.Activities.ToList());
         }
 
+
         // GET: Activities/Details/5
         public ActionResult Details(int? id)
         {
@@ -53,6 +54,7 @@ namespace Capstoneproject.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Activities.Add(activities);
                 db.SaveChanges();
                 return RedirectToAction("Index");

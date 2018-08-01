@@ -1,19 +1,32 @@
-﻿@model IEnumerable<Capstoneproject.Models.Comments>
+﻿@model IEnumerable<Capstoneproject.Models.EventComments>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Event Comments</h2>
+<h2>Comments</h2>
 
 <p>
-    @Html.ActionLink("Post Comment", "Create")
+    @Html.ActionLink("Leave Comment", "Create")
 </p>
+
+
 <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment) 
+        </th>
 
+        <th></th>
+    </tr>
 
-    @foreach (var item in Model)
-    {
+@foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -22,8 +35,7 @@
             @Html.DisplayFor(modelItem => item.EventName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Post) at @Html.DisplayFor(modelItem => item.PostDate) <br />
-
+            @Html.DisplayFor(modelItem => item.Comment) at  @Html.DisplayFor(modelItem => item.PostDate)
         </td>
         @if (ViewContext.HttpContext.User.IsInRole("Admin"))
         {
@@ -34,7 +46,6 @@
             </td>
         }
         </tr>
-    }
+}
 
 </table>
-

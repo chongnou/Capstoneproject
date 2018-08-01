@@ -6,15 +6,13 @@ using System.Web;
 
 namespace Capstoneproject.Models
 {
-    public class Comments
+    public class EventComments
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string EventName { get; set; }
-        public string RestaurantName { get; set; }
-        public string BarName { get; set; }
-        public string Post { get; set; }
+        public string Comment { get; set; }
         public DateTime PostDate { get; set; }
     }
 }

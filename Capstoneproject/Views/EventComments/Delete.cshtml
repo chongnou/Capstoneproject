@@ -1,4 +1,4 @@
-﻿@model Capstoneproject.Models.Comments
+﻿@model Capstoneproject.Models.EventComments
 
 @{
     ViewBag.Title = "Delete";
@@ -8,7 +8,7 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Comments</h4>
+    <h4>EventComments</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,27 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RestaurantName)
+            @Html.DisplayNameFor(model => model.Comment)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RestaurantName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BarName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BarName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post)
+            @Html.DisplayFor(model => model.Comment)
         </dd>
 
         <dt>
@@ -66,7 +50,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Activities", "Index", "Activities")
         </div>
     }
 </div>

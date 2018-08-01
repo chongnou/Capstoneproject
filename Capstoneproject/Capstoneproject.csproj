@@ -198,8 +198,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
-    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EventCommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NightLivesController.cs" />
@@ -232,10 +232,19 @@
     <Compile Include="Migrations\201807310314205_updated.Designer.cs">
       <DependentUpon>201807310314205_updated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807312231474_updated comment model.cs" />
+    <Compile Include="Migrations\201807312231474_updated comment model.Designer.cs">
+      <DependentUpon>201807312231474_updated comment model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808011434528_added event comment box.cs" />
+    <Compile Include="Migrations\201808011434528_added event comment box.Designer.cs">
+      <DependentUpon>201808011434528_added event comment box.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\Comments.cs" />
+    <Compile Include="Models\Barcomments.cs" />
+    <Compile Include="Models\EventComments.cs" />
     <Compile Include="Models\NightLife.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Activities.cs" />
@@ -245,16 +254,10 @@
     <Compile Include="Models\Registerforevent.cs" />
     <Compile Include="Models\Reserveatable.cs" />
     <Compile Include="Models\Reserveviptable.cs" />
+    <Compile Include="Models\Restaurantcomments.cs" />
     <Compile Include="Models\Restaurants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -270,7 +273,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -353,12 +355,6 @@
     <Content Include="Views\Registerforevents\Details.cshtml" />
     <Content Include="Views\Registerforevents\Edit.cshtml" />
     <Content Include="Views\Registerforevents\Index.cshtml" />
-    <Content Include="Views\_Comments.cshtml" />
-    <Content Include="Views\Comments\Create.cshtml" />
-    <Content Include="Views\Comments\Delete.cshtml" />
-    <Content Include="Views\Comments\Details.cshtml" />
-    <Content Include="Views\Comments\Edit.cshtml" />
-    <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\Reserveviptables\Create.cshtml" />
     <Content Include="Views\Reserveviptables\Delete.cshtml" />
     <Content Include="Views\Reserveviptables\Details.cshtml" />
@@ -369,6 +365,11 @@
     <Content Include="Views\Reserveatables\Details.cshtml" />
     <Content Include="Views\Reserveatables\Edit.cshtml" />
     <Content Include="Views\Reserveatables\Index.cshtml" />
+    <Content Include="Views\EventComments\Create.cshtml" />
+    <Content Include="Views\EventComments\Delete.cshtml" />
+    <Content Include="Views\EventComments\Details.cshtml" />
+    <Content Include="Views\EventComments\Edit.cshtml" />
+    <Content Include="Views\EventComments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -401,6 +402,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310314205_updated.resx">
       <DependentUpon>201807310314205_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312231474_updated comment model.resx">
+      <DependentUpon>201807312231474_updated comment model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011434528_added event comment box.resx">
+      <DependentUpon>201808011434528_added event comment box.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
