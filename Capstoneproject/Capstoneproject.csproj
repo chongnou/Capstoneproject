@@ -284,6 +284,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Image\Beer1.jpg" />
+    <Content Include="Image\chinalights1.jpg" />
+    <Content Include="Image\chinalights2.jpg" />
     <Content Include="Image\Food1.jpg" />
     <Content Include="Image\IMG_0967.JPG" />
     <Content Include="Image\IMG_0969.JPG" />
@@ -292,7 +294,6 @@
     <Content Include="Image\IMG_0973.JPG" />
     <Content Include="Image\IMG_0974.JPG" />
     <Content Include="Image\IMG_0975.JPG" />
-    <Content Include="Image\IMG_0977.JPG" />
     <Content Include="Image\IMG_0978.JPG" />
     <Content Include="Image\IMG_0979.JPG" />
     <Content Include="Image\IMG_0980.JPG" />
@@ -304,6 +305,8 @@
     <Content Include="Image\IMG_0997.JPG" />
     <Content Include="Image\Milwaukee1.JPG" />
     <Content Include="Image\milwaukee2.jpg" />
+    <Content Include="Image\milwaukee3.jpg" />
+    <Content Include="Image\milwaukee4.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
